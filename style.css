@@ -91,6 +91,17 @@ button:hover {
   z-index: -1;
 }
 
+@media (max-width: 480px) {
+  .caixaLog {
+    padding: 20px;
+  }
+  .logCaixa h2 {
+    font-size: 24px;
+  }
+  input, button {
+    font-size: 16px;
+  }
+}
 .areaMenu {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -263,7 +274,9 @@ button:hover {
   gap: 10px;
 }
 
-form input, form textarea, form select {
+form input,
+form textarea,
+form select {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -313,7 +326,8 @@ table {
   margin-top: 20px;
 }
 
-table th, table td {
+table th,
+table td {
   padding: 12px;
   border: 1px solid #ddd;
 }
@@ -372,7 +386,8 @@ thead {
   color: white;
 }
 
-th, td {
+th,
+td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ececec;

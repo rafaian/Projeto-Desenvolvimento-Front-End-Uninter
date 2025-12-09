@@ -1,0 +1,26 @@
+{
+  "name": "sghss-uninter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaian/Projeto-Desenvolvimento-Front-End-Uninter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rafaian/Projeto-Desenvolvimento-Front-End-Uninter/issues"
+  },
+  "homepage": "https://github.com/rafaian/Projeto-Desenvolvimento-Front-End-Uninter#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1"
+  }
+}

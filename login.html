@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidaPlus </title>
+    <title>Login </title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="fundoLog">
     <div class="imgBack"></div>
-    <div class="login-container">
+    <div class="caixaLog">
         <div class="logCaixa">
-            <!-- <img id="logoVP"  src="./assets/Logo VidaPlus.png" alt="logo VP"> -->
             <h2>VidaPlus</h2>
-            <p>Cuidando da saúde, começando pela gestão.</p>
+            <p>Cuidando da saúde, começando pela gestão.</p><br>
 
-            <form>
+            <!-- Adicione o id no formulário -->
+            <form id="formLogin">
                 <label for="email">Usuário ou E-mail</label>
                 <input type="text" id="email" placeholder="Digite seu usuário">
 
@@ -24,8 +24,46 @@
                 <button type="submit">Entrar</button>
             </form>
 
+            <!-- mensagens de erro -->
+            <p id="msgErro" style="color:red;"></p>
+
         </div>
     </div>
+
+<script>
+document.getElementById("formLogin").addEventListener("submit", async function(event) {
+    event.preventDefault(); // impede o recarregamento da página
+    
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+
+    const msgErro = document.getElementById("msgErro");
+    msgErro.textContent = ""; // limpa mensagens
+
+    try {
+        const resposta = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, senha })
+        });
+
+        const dados = await resposta.json();
+
+        if (resposta.ok) {
+            // login bem-sucedido
+            localStorage.setItem("token", dados.token);  // salva token JWT
+            window.location.href = "index.html";         // redireciona para o sistema
+        } else {
+            msgErro.textContent = dados.error || "Usuário ou senha incorretos!";
+        }
+    } catch (erro) {
+        msgErro.textContent = "Erro ao conectar com o servidor.";
+        console.error(erro);
+    }
+});
+</script>
 
 </body>
 </html>
